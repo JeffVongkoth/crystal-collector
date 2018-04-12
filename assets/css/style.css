@@ -17,17 +17,17 @@ h1, p {
     
 }
 
-.randHp {
+.rand-hp {
     background: orange;
     height: 100px;
 }
 
-.winsLoss { 
+.wins-loss { 
     background: green;
     height: 100px;
 
 }
 
-.hpScore {
+#hp-score, #hp-result {
     background: teal;
 }
