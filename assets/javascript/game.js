@@ -1,47 +1,64 @@
 $(document).ready(function() {
 
-//string for wins
 var wins = 0;
-//string for losses
 var losses = 0;
-var gameHorsepower= 0;
-var yourHorsepower= 0;
+var randHorsepower;
+var yourHorsepower;
 var modsRand = [];
+$("#wins").text("wins: " + wins );
+$("#losses").text("losses: " + losses);
 
-//when game starts set all scores to 0 or be empty
+
+
+
+
 function startGame() {
-
+//when game starts set all scores to 0 or be empty
     yourHorsepower = 0; 
-
-
-$("#hp-score, #hp-result").empty();
-}
-
+    modsRand = [];
 //create a for loop that gives a random number between 19-120
-function getRandHorsepower() {
-for (var i = 0; i < 12; i++) {
-    var gameHorsepower = Math.floor(Math.random() * 120) + 19; 
-    // console.log(gameHorsepower)
-    $(".rand-hp").text(gameHorsepower);
-}
-};
-
+randHorsepower;
 //create a for loop that assigns the buttons a random value
-function getRandMod() {
+ randHorsepower = Math.floor(Math.random() * 120) + 19; 
+$(".rand-hp").text(randHorsepower);
+//generate numbers and push to an array
 for (var i = 0; i < 12; i++) { 
     var mods = Math.floor((Math.random() * 12) + 1);
-console.log(mods);
-
-$(".image").on("click", function(){
-    $("#hp-result").text(mods);
-})
-};
+    modsRand.push(mods);
+}
 }
 
-getRandHorsepower()
-getRandMod()
+$(".mod").on("click", function(){
+    
+    $("#result").empty();
+
+    yourHorsepower += modsRand[$(this).val()];
+    console.log("your horsepower - " + yourHorsepower)
+
+    
+$("#result").text(modsRand);
+
+    if (yourHorsepower === randHorsepower) {
+        wins++
+        $(".message").text("winner winner chicken dinner");
+        startGame();
+    }
+     else if (yourHorsepower > randHorsepower) {
+        losses++
+        $(".message").text("You lose, upgrade driver mod");
+        startGame();
+}
+$("#result").text(yourHorsepower);
+$("#wins").text("wins: " + wins);
+$("#losses").text("losses: " + losses);
+})
+
+startGame()
 });
 
+
+// getRandHorsepower()
+// getRandMod()
 // * There will be four crystals displayed as buttons on the page.
 
 // * The player will be shown a random number at the start of the game.

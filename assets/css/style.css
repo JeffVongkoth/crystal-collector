@@ -2,32 +2,54 @@ body {
     background-image: url(../images/background.jpg);
 }
 
-h1, p {
+h1, h4, p, #wins, #losses, #wins-loss {
     color:white;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;  
 }
 .heading {
     background: red;
     text-align: center;
+    margin: 10px;
+    
 
 }
-
+.rand-hp {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 35px;
+    padding-top: 25px;
+    background: orange;
+    height: 120px;
+    margin: 10px;
+}
 .text {
     background: yellow;
-    
+    margin: 10px;
+    font-size: 15px;
 }
 
-.rand-hp {
-    background: orange;
-    height: 100px;
+#hp-result {
+    margin: 10px;
+    height: 50px;
+    color: white;
 }
-
 .wins-loss { 
     background: green;
-    height: 100px;
+    margin: 10px !important;
+    height: 160px !important;
+    padding: 30px !important;
 
 }
 
-#hp-score, #hp-result {
+#hp-score, #hp-result { 
     background: teal;
+}
+
+#hp-score {
+    margin: 10px;
+}
+#result {
+    margin-left: 95px !important;
+    margin-top: 0px !important;
+    font-size: 40px !important;
 }
